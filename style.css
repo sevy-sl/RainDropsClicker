@@ -18,25 +18,29 @@ body {
     color: rgb(9, 75, 9);
     position: fixed;
     font-size: 1.2vh;
-    top: 68%;
+    top: 67%;
     left: 45%;
 }
 
 .umbrella {
     font-size: 1.2vh;
     position: fixed;
-    top: 54%;
+    top: 53%;
     left: 45%;
     color: rgb(43, 59, 133);
 }
 
+.rainButton {
+    left: 0%;
+    bottom: 0.2%;
+    width: 5vw;
+    position: fixed;
+}
+
 #rainButton {
-    font-size: 2vh;
+    font-size: 3vh;
     background-color: black;
     color: white;
-    position: fixed;
-    left: 94%;
-    bottom: 0.2%;
 }
 
 #rain {
