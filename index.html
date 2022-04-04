@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RainDrops</title>
+        <script src='https://code.jquery.com/jquery-3.6.0.slim.min.js' integrity='sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div id="clouds">
+          <pre class='cloud' id="cloud">.......&&@&&&%%%....
+..&&&&&@&&&@&&%#(&&&
+#&&&%&%&&@@&%&(#((##
+&@@@&&@&&@&&%%(###((
+&&&&&&&&&##%&&%%%#(*
+(/(((//((/*////(((/#<pre></div>
+        <div class="human">
+            <pre id="human">          #@@@@@)                                  
+         @@      (@                                
+        (@        @@                               
+         @@      %@                                
+          (@@@@@&                                  
+         ,@                                        
+       *@@@                                        
+      @#%@@&                                       
+    #@  @% @#                                      
+   %@   @#  &@                                     
+   @    @@    #@&                                  
+  @@     @,      @@*                               
+  @&     .@.                                       
+          @@@                                      
+        /@  (@                                     
+      ,@(     @%                                   
+    *@(        @@                                  
+   @@            &@                                
+ @@*               %@                              
+@&                   @@   .@                       
+ .@@@                 @@@&                         </pre>
+        </div>
+        <div class="umbrella">
+            <pre id="umbrella">                        .(((
+             (////*%#############%#%%%%
+         ###((((((%%%%%%%%%%%%%%%%%%%%%%%%%%
+      ##########&%%%%%%%%%%%%%%%&&&&&&%%#######
+    ###########%&%%%%%%%%%%%%&&&&&&&&&&%#########
+  %%%#########&%%%%%%%%%%%%%%%&&&&&&&&&&%#########(*
+/        ####&%%%%%%.     .         ./&%&&&#        \
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                          .                          
+                    %,    %                          
+                       %,                            </pre>
+        </div>
+        <div id="rain">
+        </div>
+        <div class="rainButton">
+          <button id="rainButton">Drop some rain</button>
+        </div>
+    <script type="text/javascript">
+      var cloudsCount = window.innerWidth / $('#cloud').width();
+      for(var i=1; i<cloudsCount; i++){  
+        $('#cloud').clone().removeAttr('id').appendTo('#clouds'); 
+      };
+      $('#rainButton').click(function(){
+        var randomSpeed = Math.floor(Math.random() * (100 - 60 + 1) + 60);
+        var randomXPos = Math.floor(Math.random() * 99 + 1);
+        var rainMove = document.createElement("marquee");
+        $(rainMove).css({'position':'fixed','height':'100%','font-size':'2.5vh','left':`${randomXPos}%`,'color':'rgb(59, 71, 173)'});
+        var rain = document.createElement('pre');
+        $(rain).html('/');
+        $(rainMove).attr('scrollamount', `${randomSpeed}`)
+        $(rainMove).attr('direction', 'down');
+        $(rainMove).append(rain);
+        $('#rain').append(rainMove);
+        setTimeout(function(){
+          $(rainMove).remove();
+        }, 4000);
+      });
+    </script>
+    </body>
+</html>
