@@ -5,7 +5,7 @@ body {
 
 #clouds {
     color: rgb(105, 100, 100);
-    position: fixed;
+    position: absolute;
     top: 0%;
     left: 0%;
     width: 100%;
@@ -16,35 +16,40 @@ body {
 
 .human {
     color: rgb(9, 75, 9);
-    position: fixed;
+    position: absolute;
     font-size: 1.2vh;
-    top: 67%;
+    bottom: 0%;
     left: 45%;
+}
+
+#human {
+    z-index: 2;
 }
 
 .umbrella {
     font-size: 1.2vh;
-    position: fixed;
-    top: 53%;
-    left: 45%;
-    color: rgb(43, 59, 133);
+    position: absolute;
+    bottom: 12%;
+    left: 43.5%;
+    color: rgb(77, 0, 107);
+    z-index: 3;
 }
 
 .rainButton {
-    left: 0%;
-    bottom: 0.2%;
+    left: 20vh;
+    bottom: 20vh;
     width: 5vw;
-    position: fixed;
+    position: absolute;
+    z-index: 4;
 }
 
 #rainButton {
-    font-size: 3vh;
+    font-size: 2vh;
     background-color: black;
     color: white;
 }
 
 #rain {
-    position: fixed;
+    position: absolute;
     top: 12%;
-    height: 100vh;
 }
