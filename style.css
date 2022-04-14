@@ -1,10 +1,11 @@
 body {
     background-color: black;
     overflow: hidden;
+    touch-action: manipulation;
 }
 
 #clouds {
-    color: rgb(105, 100, 100);
+    color: rgb(138, 132, 132);
     position: absolute;
     top: 0%;
     left: 0%;
@@ -15,31 +16,31 @@ body {
 }
 
 .human {
-    color: rgb(9, 75, 9);
-    position: absolute;
-    font-size: 1.2vh;
+    color: rgb(20, 138, 20);
+    position: fixed;
     bottom: 0%;
-    left: 45%;
+    left: 41%;
 }
 
 #human {
+    font-size: 1.2vh;
     z-index: 2;
 }
 
 .umbrella {
     font-size: 1.2vh;
-    position: absolute;
+    position: fixed;
     bottom: 12%;
-    left: 43.5%;
-    color: rgb(77, 0, 107);
+    left: 40%;
+    color: rgb(121, 3, 168);
     z-index: 3;
 }
 
 .rainButton {
-    left: 20vh;
-    bottom: 20vh;
-    width: 5vw;
-    position: absolute;
+    position: fixed;
+    left: 0%;
+    bottom: 1%;
+    width: 5vh;
     z-index: 4;
 }
 

@@ -6,41 +6,38 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <div id="clouds">
-          <pre class='cloud' id="cloud">.......&&@&&&%%%....
+      <div id="clouds">
+        <pre class='cloud' id="cloud">.......&&@&&&%%%....
 ..&&&&&@&&&@&&%#(&&&
 #&&&%&%&&@@&%&(#((##
 &@@@&&@&&@&&%%(###((
 &&&&&&&&&##%&&%%%#(*
 (/(((//((/*////(((/#<pre></div>
-        <div class="human">
-            <pre id="human">          #@@@@@)                                  
-         @@      (@                                
-        (@        @@                               
-         @@      %@                                
-          (@@@@@&                                  
-         ,@                                        
-       *@@@                                        
-      @#%@@&                                       
-    #@  @% @#                                      
-   %@   @#  &@                                     
-   @    @@    #@&                                  
-  @@     @,      @@*                               
-  @&     .@.                                       
-          @@@                                      
-        /@  (@                                     
-      ,@(     @%                                   
-    *@(        @@                                  
-   @@            &@                                
- @@*               %@                              
-@&                   @@   .@                       
- .@@@                 @@@&                         </pre>
-          <div class="rainButton">
-            <button id="rainButton">Drop some rain</button>
-          </div>
-        </div>
-        <div class="umbrella">
-            <pre id="umbrella">                        .(((
+      <div class="human">
+          <pre id="human">          #@@@@@)                                
+         @@      (@                              
+        (@        @@                             
+         @@      %@                              
+          (@@@@@&                                
+         ,@                                      
+       *@@@                                      
+      @#%@@&                                     
+    #@  @% @#                                    
+   %@   @#  &@                                   
+   @    @@    #@&                                
+  @@     @,      @@*                             
+  @&     .@.                                     
+          @@@                                    
+        /@  (@                                   
+      ,@(     @%                                 
+    *@(        @@                                
+   @@            &@                              
+ @@*               %@                            
+@&                   @@   .@                     
+ .@@@                 @@@&                       </pre>
+      </div>
+      <div class="umbrella">
+          <pre id="umbrella">                        .(((
              (////*%#############%#%%%%
          ###((((((%%%%%%%%%%%%%%%%%%%%%%%%%%
       ##########&%%%%%%%%%%%%%%%&&&&&&%%#######
@@ -62,39 +59,45 @@
                           .                          
                           .                          
                        %, %                          
-                         &                          </pre>
-        </div>
-        <div id="rain">
-        </div>
-    <script type="text/javascript">
-      var cloudsCount = window.innerWidth / $('#cloud').width();
-      for(var i=1; i<cloudsCount; i++){  
-        $('#cloud').clone().removeAttr('id').appendTo('#clouds'); 
-      };
-      $('#rainButton').click(function(){
-        var randomSpeed = Math.floor(Math.random() * 41 + 60);
-        var randomXPos = Math.floor(Math.random() * 99 + 1);
-        var randomSize = Math.random() * 4.5 + 1.5;
-        var randomShield = Math.floor(Math.random() * 7 + 45);
-        
-        var rainMove = document.createElement("marquee"); 
-        if(randomXPos >= 43 && randomXPos <= 61){
-          $(rainMove).css({'z-index':'1','position':'fixed','height':`${randomShield}%`,'font-size':`${randomSize}vh`,'left':`${randomXPos}%`,'color':'rgb(59, 71, 173)'});
-        }else {
-          $(rainMove).css({'z-index':'1','position':'fixed','height':'100%','font-size':`${randomSize}vh`,'left':`${randomXPos}%`,'color':'rgb(59, 71, 173)'});
+                         &                           </pre>
+      </div>
+      <div class="rainButton">
+        <button id="rainButton">Drop some rain</button>
+      </div>
+      <div id="rain">
+      </div>
+      <script type="text/javascript">
+        var cloudsCount = window.innerWidth / $('#cloud').width();
+        for(var i=1; i<cloudsCount; i++){  
+          $('#cloud').clone().removeAttr('id').appendTo('#clouds'); 
         };
-        
-        var rain = document.createElement('pre');
-        $(rain).html('/');
-        
-        $(rainMove).attr('scrollamount', `${randomSpeed}`).attr('direction', 'down');        
-        $(rainMove).append(rain);
-        $('#rain').append(rainMove);
-        
-        setTimeout(function(){
-          $(rainMove).remove();
-        }, 10000);
-      });
-    </script>
+        $('#rainButton').click(function(){
+          var randomSpeed = Math.floor(Math.random() * 41 + 60);
+          var randomXPos = Math.floor(Math.random() * 99 + 1);
+          var randomSize = Math.random() * 4.5 + 1.5;
+          var umbrHeight = 100 - (Math.floor($('.umbrella').height() * 100 / window.innerHeight) + 15);
+          var umbrWidth = Math.floor($('.umbrella').width() * 100 / window.innerWidth);
+          console.log(umbrWidth);
+          
+          var rainMove = document.createElement("marquee"); 
+          
+          if(randomXPos >= 40 && randomXPos <= (40 + umbrWidth)){
+            $(rainMove).css({'z-index':'1','position':'fixed','height':`${umbrHeight}%`,'font-size':`${randomSize}vh`,'left':`${randomXPos}%`,'color':'rgb(46, 31, 255)','width':`${randomSize}vh`});
+          }else {
+            $(rainMove).css({'z-index':'1','position':'fixed','height':'100%','font-size':`${randomSize}vh`,'left':`${randomXPos}%`,'color':'rgb(46, 31, 255)','width':`${randomSize}vh`});
+          };
+          
+          var rain = document.createElement('pre');
+          $(rain).html('/');
+          
+          $(rainMove).attr('scrollamount', `${randomSpeed}`).attr('direction', 'down');        
+          $(rainMove).append(rain);
+          $('#rain').append(rainMove);
+          
+          setTimeout(function(){
+            $(rainMove).remove();
+          }, 20000);
+        });
+      </script>
     </body>
 </html>
